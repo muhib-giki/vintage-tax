@@ -7,6 +7,7 @@ import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import AiAssistant from './components/AiAssistant';
 import { PageState } from './types';
+import './index.css'
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<PageState>(PageState.HOME);
