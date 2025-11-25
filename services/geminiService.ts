@@ -2,7 +2,13 @@ import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 
 // Initialize the client
 // Note: In a real deployment, ensure process.env.API_KEY is set.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+// 💡 TEMPORARY DEBUG: Check the value being used
+console.log(API_KEY);
+console.log("DEBUG: VITE_GEMINI_API_KEY value length:", API_KEY ? API_KEY.length : 'undefined/empty');
+console.log("DEBUG: Is VITE_GEMINI_API_KEY starting with 'AIza'?", API_KEY?.startsWith('AIza'));
+
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const SYSTEM_INSTRUCTION = `
 You are "Vincent", the virtual assistant for Vintage Tax, a prestigious US taxation and accounting firm.
